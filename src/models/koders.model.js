@@ -32,6 +32,10 @@ const schema =new mongoose.Schema({
     createdAt:{
         type:Date,
         default:Date.now
+    },
+    generation:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"generations"
     }
 })
 module.exports=mongoose.model(modelName,schema)

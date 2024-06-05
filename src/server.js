@@ -7,6 +7,7 @@ server.use(express.json())
 server.use("/Koder",kodersRouter)
 server.use("/mentors",mentorRouter)
 server.use("/auth",authRouter)
+server.use("/generations")
 server.get("/",(request,response)=>{
 response.json({
     message:"koders-APIv1"
