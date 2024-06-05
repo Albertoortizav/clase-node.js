@@ -1,7 +1,12 @@
+const createError=require("http-errors")
 const koders=require("../models/koders.model")
-
-
+const encrypt=require("../lib/encrypt")
 async function create(koderData){
+  const koderFound= await koders.findOne({ email:koderData.email })
+  if(koderFound){
+    throw createError(409,'Email already in use')
+  }
+  koderData.password=await encrypt.encrypt(koderData.password)
 const newKoder = await koders.create(koderData)
 return newKoder
 }

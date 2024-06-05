@@ -1,8 +1,8 @@
 const express= require("express")
 const koderUseCase=require("../usecase.js/koder.usecase")
 const router=express.Router()
-
-router.get("/",async(request,response)=>{
+const auth =require("../middlewares/auth.midleware")
+router.get("/",auth,async(request,response)=>{
     try {
        const koders=await koderUseCase.getAll() 
     response.json({
@@ -32,7 +32,7 @@ router.post('/',async (request,response)=>{
         })
     }
 })
-router.get("/:id",async (request,response)=>{
+router.get("/:id",auth,async (request,response)=>{
     try {
        const id=request.params.id 
        const koder=await koderUseCase.getById(id)
@@ -48,7 +48,7 @@ router.get("/:id",async (request,response)=>{
         })
     }
 })
-router.delete("/:id",async(request,response)=>{
+router.delete("/:id",auth,async(request,response)=>{
     try {
         const {id}=request.params
         const kodersDeleted=await koderUseCase.deleteById(id)
@@ -65,7 +65,7 @@ router.delete("/:id",async(request,response)=>{
     }
 })
 
-router.patch("/:id",async(request,response)=>{
+router.patch("/:id",auth,async(request,response)=>{
     try {
         const {id} =request.params
         const koderUpdate=await koderUseCase.updateById(id)
