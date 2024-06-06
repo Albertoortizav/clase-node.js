@@ -35,7 +35,7 @@ const schema =new mongoose.Schema({
     },
     generation:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"generations"
+        ref:"generation"
     }
 })
 module.exports=mongoose.model(modelName,schema)

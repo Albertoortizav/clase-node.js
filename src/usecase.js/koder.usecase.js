@@ -11,11 +11,11 @@ const newKoder = await koders.create(koderData)
 return newKoder
 }
 async function getAll(){
- const allKoders=await koders.find()
+ const allKoders=await koders.find().populate("generation")
  return allKoders   
 }
 async function getById(id){
-    const koder= await koders.findById(id)
+    const koder= await koders.findById(id).populate("generation")
   return koder
 }
 async function deleteById(id){

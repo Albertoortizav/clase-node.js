@@ -1,8 +1,8 @@
-const createError=require("http-error")
-const generation=require("../models/generation.model")
+const createError=require("http-errors")
+const generations=require("../models/generation.model")
 
 async function create (generation){
-    const newGeneration= await generation.create(generation)
+    const newGeneration= await generations.create(generation)
     return newGeneration
 }
 
@@ -25,4 +25,4 @@ async function updateById(id,newGenerationData){
     return updateGeneration
 }
 
-module.exports={create,getAll,getById,deleteById,updateById}
+module.exports={create,getAll,getById,deleteById,updateById,}

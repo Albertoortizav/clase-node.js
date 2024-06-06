@@ -1,7 +1,7 @@
 require("dotenv").config()
 const app=require("./src/server")
 const db=require("./src/lib/db")
-const port=process.env.port || 8080
+const PORT=process.env.PORT || 8080
 db.connect().then(()=>{
     console.log("DB connected")
     app.listen(port,()=>{

@@ -2,7 +2,7 @@ const mongoose =require("mongoose")
 
 const schema=new mongoose.Schema({
   number:  {
-        type:number,
+        type:Number,
         required:true,
         min:1,
         max:100
